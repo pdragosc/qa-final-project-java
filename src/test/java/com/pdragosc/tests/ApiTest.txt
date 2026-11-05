@@ -1,0 +1,13 @@
+TEST: GET /todos/1 returneaza status 200 si contine un title
+
+ARRANGE:
+  baseUrl = "https://jsonplaceholder.typicode.com"
+  endpoint = "/todos/1"
+
+ACT:
+  response = trimite cerere GET la (baseUrl + endpoint)
+
+ASSERT:
+  verifica ca response.statusCode == 200
+  verifica ca response.body contine campul "title"
+  verifica ca valoarea campului "title" nu este goala
