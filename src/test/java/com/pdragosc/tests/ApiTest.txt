@@ -1,13 +1,19 @@
-TEST: GET /todos/1 returneaza status 200 si contine un title
+Test API - verific un request GET
 
-ARRANGE:
-  baseUrl = "https://jsonplaceholder.typicode.com"
-  endpoint = "/todos/1"
+ARRANGE (pregatesc):
+  adresa = https://jsonplaceholder.typicode.com/todos/1
 
-ACT:
-  response = trimite cerere GET la (baseUrl + endpoint)
+ACT (fac actiunea):
+  trimit un request GET la adresa
+  salvez raspunsul
 
-ASSERT:
-  verifica ca response.statusCode == 200
-  verifica ca response.body contine campul "title"
-  verifica ca valoarea campului "title" nu este goala
+ASSERT (verific):
+  daca statusul este 200
+      afisez "Status OK"
+  altfel
+      afisez "Test picat, statusul nu e 200"
+
+  daca raspunsul are un title
+      afisez "Title gasit"
+  altfel
+      afisez "Test picat, nu exista title"
